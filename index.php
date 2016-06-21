@@ -5,8 +5,6 @@ require_once("include.php");
 
 $pageTitle = "Register" ;
 require_once(__ROOT__."/views/layout/header.php");
-
-
 require_once(__ROOT__."/models/Users.php");
 
 use models\Users;
