@@ -32,6 +32,14 @@ class Connection {
 
          return $conn;
      }
+
+     public function query($sql)
+     {
+         $conn = $this->init() ;
+         $response = $conn->query($sql);
+         return $response ;
+     }
+
 }
 
 ?>

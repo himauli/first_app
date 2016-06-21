@@ -14,7 +14,10 @@ use helper\Helper;
 class Users extends Model
 {
 
-
+    public function classname()
+    {
+        return __CLASS__ ;
+    }
 
     public function tableName()
     {
@@ -38,58 +41,23 @@ class Users extends Model
         ];
     }
 
-    public function getAttributeLable($attribute)
+    public function defaultVaulues($insert)
     {
-        $attributeArray = $this->attributeLabels();
-        return Helper::arrayKeyExist($attribute, $attributeArray);
-    }
-
-    public function getName($attribute)
-    {
-        $c = $this->classNameWithoutNameSpace(__CLASS__);
-        return $c."[".$attribute."]";
-    }
-
-    public function getId($attribute)
-    {
-        $c = $this->classNameWithoutNameSpace(__CLASS__);
-        return strtolower($c)."-".$attribute;
-    }
-
-    public function getHolderId($attribute)
-    {
-        $c = $this->classNameWithoutNameSpace(__CLASS__);
-        return strtolower($c)."-holder-".$attribute;
-    }
-
-
-    public function loadPostData($post)
-    {
-        $attributeLables =  $this->attributeLabels();
-
-        Helper::printR("Attribute labels",0);
-        Helper::printR($attributeLables , 0);
-
-        foreach($attributeLables as $k=>$val)
+        if($insert)
         {
-
-            if(Helper::arrayKeyExist($k, $post))
-            {
-                $this->attributes[$k] = $post[$k];
-            }
-            else
-            {
-                $this->attributes[$k] = null ;
-            }
-
+            return [
+                'created_at'=>'UNIX_TIMESTAMP()',
+                'updated_at'=>'UNIX_TIMESTAMP()',
+                'cover_picture'=>'Jaimin MosLake'
+            ];
         }
-
-       // Helper::printR("JAIMIN", 0);
-      //  Helper::printR($this->attributes);
-
-        return $this->attributes ;
+        else
+        {
+            return [
+                'updated_at'=>'UNIX_TIMESTAMP()'
+            ];
+        }
     }
-
 
 }
 

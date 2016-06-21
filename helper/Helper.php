@@ -9,6 +9,16 @@ namespace helper;
 
 class Helper {
 
+    public static function stringNotNull($string)
+    {
+        return ($string != "" && $string != null);
+    }
+
+    public static function stringNull($string)
+    {
+        return !self::stringNotNull($string);
+    }
+
     public static function printR($data, $exit = 1)
     {
         echo "<pre></br>";

@@ -14,15 +14,21 @@ $u = new Users();
 
 if(isset($_POST['Users']))
 {
-
-    \helper\Helper::printR("We are passing",0);
-    \helper\Helper::printR($_POST['Users'], 0);
+    //\helper\Helper::printR("We are passing",0);
+    //\helper\Helper::printR($_POST['Users'], 0);
 
     if($u->loadPostData( $_POST['Users'] ))
     {
-        \helper\Helper::printR("And we get this labels",0);
-
-        \helper\Helper::printR($u->attributes);
+        //\helper\Helper::printR("And we get this labels",0);
+        //\helper\Helper::printR($u->attributes , 0);
+        
+        if($u->save($u->tableName()))
+        {
+             echo "You have been succefully signed up." ;
+             exit;
+        }
+        
+        
     }
 }
 
