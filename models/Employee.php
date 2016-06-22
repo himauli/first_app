@@ -2,17 +2,15 @@
 /**
  * Created by PhpStorm.
  * User: Himauli
- * Date: 14-Jun-16
- * Time: 10:55 PM
+ * Date: 22-Jun-16
+ * Time: 6:12 PM
  */
-
 
 namespace models;
 
 use helper\Helper;
 
-class Users extends Model
-{
+class Employee extends Model{
 
     public function classname()
     {
@@ -21,7 +19,7 @@ class Users extends Model
 
     public function tableName()
     {
-        return "users";
+        return "employee";
     }
 
     public function attributeLabels()
@@ -48,7 +46,7 @@ class Users extends Model
             return [
                 'created_at'=>'UNIX_TIMESTAMP()',
                 'updated_at'=>'UNIX_TIMESTAMP()',
-                'cover_picture'=>'Jaimin MosLake'
+                'cover_picture'=>'Himauli'
             ];
         }
         else
@@ -61,6 +59,6 @@ class Users extends Model
 
 }
 
-
-
 ?>
+
+

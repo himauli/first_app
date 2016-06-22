@@ -3,37 +3,37 @@
 require_once("include.php");
 
 
-$pageTitle = "Register" ;
+$pageTitle = "Register Employee" ;
 require_once(__ROOT__."/views/layout/header.php");
-require_once(__ROOT__."/models/Users.php");
+require_once(__ROOT__."/models/Employee.php");
 
-use models\Users;
-$u = new Users();
+use models\Employee;
+$e = new Employee();
 
-if(isset($_POST['Users']))
+if(isset($_POST['Employee']))
 {
     //\helper\Helper::printR("We are passing",0);
     //\helper\Helper::printR($_POST['Users'], 0);
 
-    if($u->loadPostData( $_POST['Users'] ))
+    if($e->loadPostData( $_POST['Employee'] ))
     {
         //\helper\Helper::printR("And we get this labels",0);
         //\helper\Helper::printR($u->attributes , 0);
-        
-        if($u->save($u->tableName()))
+
+        if($e->save($e->tableName()))
         {
-             echo "You have been successfully signed up." ;
-             exit;
+            echo "You have been successfully signed up." ;
+            exit;
         }
-        
-        
+
+
     }
 }
 
 
 
 
-require_once(__ROOT__."/views/content/register.php");
+require_once(__ROOT__."/views/content/registerEmployee.php");
 
 
 

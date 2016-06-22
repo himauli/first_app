@@ -72,14 +72,17 @@ class Model
 
 
         $sql .=  $sqlA.$sqlV ;
-        
+
+
+        Helper::printR($sql);
+
         $c = new Connection();
         $result = $c->query($sql);
 
         return $result ;
     }
 
-    public function defaultVaulues($insert)
+    public function defaultValues($insert)
     {
         if($insert)
         {
@@ -100,7 +103,10 @@ class Model
     {
         // A  = 5 ;
         $attributes = $this->attributes ;
-        $p = $this->defaultVaulues($insert) ;
+        $p = $this->defaultValues($insert) ;
+
+
+        Helper::printR($attributes);
 
         foreach ($p as $k=>$val)
         {
