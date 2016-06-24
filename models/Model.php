@@ -39,6 +39,7 @@ class Model
         $attributes = $this->attributes ;
 
 
+
         $sql = ' INSERT INTO  ' ;
         $sql .=  ' '.$tblName.' ';
         //  $sql = $sql.' '.$tblName.' '; ;
@@ -74,7 +75,7 @@ class Model
         $sql .=  $sqlA.$sqlV ;
 
 
-        Helper::printR($sql);
+        //Helper::printR($sql);
 
         $c = new Connection();
         $result = $c->query($sql);
@@ -105,8 +106,6 @@ class Model
         $attributes = $this->attributes ;
         $p = $this->defaultValues($insert) ;
 
-
-        Helper::printR($attributes);
 
         foreach ($p as $k=>$val)
         {
@@ -141,6 +140,7 @@ class Model
     public function loadPostData($post)
     {
         $attributeLables =  $this->attributeLabels();
+
 
         //Helper::printR("Attribute labels",0);
         //Helper::printR($attributeLables , 0);

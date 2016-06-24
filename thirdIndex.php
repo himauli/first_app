@@ -15,7 +15,7 @@ if(isset($_POST['Address']))
     if($ad->loadPostData( $_POST['Address'] ))
     {
 
-        if($ad->save($ad->tableName()))
+        if($ad->save())
         {
             echo "Your address have been successfully registered." ;
             exit;
